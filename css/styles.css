@@ -4666,7 +4666,6 @@ input[type="button"].btn--primary:focus {
     text-align: center;
     border-radius: 10px;
     background-color: #ccc; /* Set initial background color */
-    transition: transform 0.5s, background-color 0.5s; /* Add background-color transition */
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -4675,11 +4674,13 @@ input[type="button"].btn--primary:focus {
     transform-style: preserve-3d;
     transform-origin: center;
     cursor: pointer;
+    transition: transform 0.5s, background-color 0.5s;
   }
   
   .skill-bubble img {
-    width: 100px; /* Adjust image size */
-    height: 100px; /* Adjust image size */
+    width: 80px; /* Adjust image size */
+    height: 80px; /* Adjust image size */
+    object-fit: contain; 
     border-radius: 50%;
     align-self: center;
   }
@@ -4687,13 +4688,14 @@ input[type="button"].btn--primary:focus {
   .skill-description {
     font-size: 12px;
     margin-top: 5px;
-    line-height: 1.2; /* Adjust line height for better spacing */
+    font-weight: bold; /* Apply bold styling */
+    line-height: 1.2;
   }
   
   /* Add hover effect for rotation */
   .skill-bubble:hover {
     transform: rotateY(360deg); /* Rotate 360 degrees on hover */
-    background-color: #c90000; /* Change background color on hover */
+    background-color: #ff8787; /* Change background color on hover */
     animation: rotateBack 0.5s ease-in-out forwards; /* Apply the rotation animation */
   }
 
