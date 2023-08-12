@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Nick Marmaras</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor.css">
+
+    <!-- script
+    ================================================== -->
+    <script defer src="js/vendor/fontawesome/all.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body id="top" class="ss-preload">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+        <div class="row s-header__nav-wrap">
+            <nav class="s-header__nav">
+                <ul>
+                    <li class="current"><a class="smoothscroll" href="#hero">Home</a></li>
+                    <li><a class="smoothscroll" href="#about">About</a></li>
+                    <li><a class="smoothscroll" href="#resume">Resume</a></li>
+                    <li><a class="smoothscroll" href="#portfolio">Works</a></li>
+                    <li><a class="smoothscroll" href="#contact">Say Hello</a></li>
+                </ul>
+            </nav>
+        </div> <!-- end row -->
+        
+        <a class="s-header__menu-toggle" href="#0" title="Menu">
+            <span class="s-header__menu-icon"></span>
+        </a>
+    </header> <!-- end s-header -->
+
+
+    <!-- hero
+    ================================================== -->
+    <section id="hero" class="s-hero target-section">
+
+        <div class="s-hero__bg rellax" data-rellax-speed="-7"></div>
+
+        <div class="row s-hero__content">
+            <div class="column">
+
+                <div class="s-hero__content-about">
+
+                    <h1>I'm Nick Marmaras.</h1>
+
+                    <h3>
+                    I'm software based <span>game developer</span>, <span>VR content developer</span> and <span>designer</span> creating awesome and
+                    effective 2D-3D games. Let's <a class="smoothscroll" href="#about">start scrolling</a>
+                    and learn more <a class="smoothscroll" href="#about">about me</a>.
+                    </h3>
+
+                    <div class="s-hero__content-social">
+                        <a href="https://www.facebook.com/profile.php?id=1755053703"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/Nikos_marm"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/nikos_marm/"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/nikos-marmaras-54b6011b7/"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+
+                </div> <!-- end s-hero__content-about -->
+
+            </div>
+        </div> <!-- s-hero__content -->
+
+        <div class="s-hero__scroll">
+            <a href="#about" class="s-hero__scroll-link smoothscroll">
+                <span class="scroll-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z"></path></svg>
+                </span>
+                <span class="scroll-text">Scroll Down</span>
+            </a>
+        </div> <!-- s-hero__scroll -->
+
+    </section> <!-- end s-hero -->
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+
+        <div class="row">
+            <div class="column large-3 tab-12">
+                <img class="s-about__pic" src="images/avatars/Nick_Marmaras.jpg" alt="">
+            </div>
+            <div class="column large-9 tab-12 s-about__content">
+                <h3>About Me</h3>
+                <p>
+                    I'm currently working at OramaVR, a company which is bringing medical simulation to
+                    the next level.
+                    With the knowledge of object-oriented Game Programming accustomed to developing video games,
+                    I'm currently a virtual reality content developer in Unreal Engine 4 and Unity.
+                    My main goal is to continue implementing stages of software and Game Development and trying to improve side projects when possible around my work schedule.
+                    I am passionate about gaming outside of work and play single player games in my free time.
+                    I'm also playing the guitar regularly as a hobby and reading.
+                </p>
+
+                <hr>
+
+                <div class="row s-about__content-bottom">
+                    <div class="column w-1000-stack">
+                        <h3>Contact Details</h3>
+    
+                        <p>
+                        Nick Marmaras <br>
+                        Heraklion, Crete <br>
+                        Greece<br>
+                        <a href="mailto:n.marmaras@hotmail.com">n.marmaras@hotmail.com</a>
+                        </p>
+                        
+                    </div>
+                    <div class="column w-1000-stack">
+                        <script>
+                            function download(url, filename) {
+                                fetch(url)
+                                    .then(response => response.blob())
+                                    .then(blob => {
+                                        const link = document.createElement("a");
+                                        link.href = URL.createObjectURL(blob);
+                                        link.download = filename;
+                                        link.click();
+                                    })
+                                    .catch(console.error);
+                            }
+                        </script>
+                        <button onclick="download('Nick-Marmaras.pdf','Nick-Marmaras.pdf')" class="btn btn--download"> 
+                            <svg xmlns="https://my.indeed.com/p/gsl2hve" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M12 16L16 11 13 11 13 4 11 4 11 11 8 11z"></path><path d="M20,18H4v-7H2v7c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2v-7h-2V18z"></path></svg>
+                        Download CV
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end row -->
+
+    </section> <!-- end s-about -->
+
+
+    <!-- resume
+    ================================================== -->
+    <section id="resume" class="s-resume target-section">
+        
+        <div class="row s-resume__section">
+            <div class="column large-3 tab-12">
+                <h3 class="section-header-allcaps">Career</h3>
+            </div>
+            <div class="column large-9 tab-12">
+                <div class="resume-block">
+
+                    <div class="resume-block__header">
+                        <h4 class="h3">Telemetrics System Measurements</h4>
+                        <p class="resume-block__header-meta">
+                            <span>Software Developer</span> 
+                            <span class="resume-block__header-date">
+                                January 2019 - March 2021
+                            </span>
+                        </p>
+                    </div>
+
+                    <p>
+                        <ul>
+                            <li>Interface design and software development for electrical and electronic measurement systems.</li>
+                            <li>Communication with the CEO to determine the requirements.</li>
+                            <li>Presentation of the results to the technical team.</li>
+                        </ul>
+                    </p>
+
+                </div> <!-- end resume-block -->
+
+                <div class="resume-block">
+
+                    <div class="resume-block__header">
+                        <h4 class="h3">OramaVR</h4>
+                        <p class="resume-block__header-meta">
+                            <span>VR Content Developer</span> 
+                            <span class="resume-block__header-date">
+                                July 2021 - Present
+                            </span>
+                        </p>
+                    </div>
+
+                    <p>
+                        Accelerating the world’s transition
+                        to medical vr training.
+                        <ul>
+                            <li>Software development with C# in Unity and with C++ in Unreal Engine</li>
+                        </ul>
+                    </p>
+
+                </div> <!-- end resume-block -->
+            </div>
+        </div> <!-- s-resume__section -->
+
+
+        <div class="row s-resume__section">
+            <div class="column large-3 tab-12">
+                <h3 class="section-header-allcaps">Education</h3>
+            </div>
+            <div class="column large-9 tab-12">
+                <div class="resume-block">
+
+                    <div class="resume-block__header">
+                        <h4 class="h3">Computer Science Department, University of Crete</h4>
+                        <p class="resume-block__header-meta">
+                            <span>Undergraduate Student</span> 
+                            <span class="resume-block__header-date">
+                                April 2015 - Present
+                            </span>
+                        </p>
+                    </div>
+
+                    <p>
+                        I studied at Computer Science Department, in Heraklion at Greece. Gained knownledge as described below
+                        <ul>
+                            <li>Data Structures and Algorithms</li>
+                            <li>Object oriented languages(C++, Java, Javascript)</li>
+                            <li>HTML, CSS, Figma</li>
+                            <li>C language</li>
+                            <li>Hardware design from digital design and computer organization for RISC-V processor</li>
+                        </ul>
+                    </p>
+
+                </div> <!-- end resume-block -->
+
+                <div class="resume-block">
+
+                    <div class="resume-block__header">
+                        <!--<h4 class="h3">High School</h4>
+                        <p class="resume-block__header-meta">
+                            <span>Student</span> 
+                            <span class="resume-block__header-date">
+                                June 2014
+                            </span>
+                        </p>-->
+                    </div>
+
+                    <p>
+                    
+                    </p>
+
+                </div> <!-- end resume-block -->
+            </div>
+        </div> <!-- s-resume__section -->
+
+
+        <div class="row s-resume__section">
+            <div class="column large-3 tab-12">
+                <h3 class="section-header-allcaps">Skills</h3>
+            </div>
+            <div class="column large-9 tab-12">
+                <div class="resume-block">
+
+                    <p>
+                    Never done learning and always seeking to improve myself. 
+                    Curius about new possibilities and taking action to explore them.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>C++</strong>
+                        </li>
+                        <li>
+                            <strong>C#</strong>
+                        </li>
+                        <li>
+                            <strong>Java</strong>
+                        </li>
+                        <li>
+                            <strong>Unreal Engine 4</strong>
+                        </li>
+                        <li>
+                            <strong>Unreal Engine 5</strong>
+                        </li>
+                        <li>
+                            <strong>Unity</strong>
+                        </li>
+                        <li>
+                            <strong>C</strong>
+                        </li>
+                        <li>
+                            <strong>Python</strong>
+                        </li>
+                        <li>
+                            <strong>R</strong>
+                        </li>
+                        <li>
+                            <strong>HTML</strong>
+                        </li>
+                        <li>
+                            <strong>CSS</strong>
+                        </li>
+                        <li>
+                            <strong>Javascript</strong>
+                        </li>
+                        <li>
+                            <strong>Git Source Control</strong>
+                        </li>
+                        <li>
+                            <strong>Figma</strong>
+                        </li>
+                        <li>
+                            <strong>Microsoft Office</strong>
+                        </li>
+                    </ul>
+
+                </div> <!-- end resume-block -->
+
+            </div>
+        </div> <!-- s-resume__section -->
+
+    </section> <!-- end s-resume -->
+
+
+    <!-- portfolio
+    ================================================== -->
+    <section id="portfolio" class="s-portfolio target-section">
+
+        <div class="row s-portfolio__header">
+            <div class="column large-12">
+                <h3>Projects</h3>
+            </div>
+        </div>
+
+        <div class="row collapse block-large-1-4 block-medium-1-3 block-tab-1-2 block-500-stack folio-list">
+
+            <div class="column folio-item">
+                <a data-content="Ticket To Ride" href="#modal-01" class="folio-item__thumb">
+                    <img src="images/portfolio/TicketToRide.png"
+                         srcset="images/portfolio/TicketToRide.png 1x,
+                                 images/portfolio/TicketToRide2X.png 2x" alt="Tiele">
+                </a>
+            </div> <!-- end folio-item -->
+
+            <div class="column folio-item">
+                <a data-content="Compiler" href="#modal-02" class="folio-item__thumb">
+                    <img src="images/portfolio/phase2.png"
+                         srcset="images/portfolio/phase2.png 1x,
+                                 images/portfolio/phase2X.png 2x" alt="">
+                </a>
+            </div> <!-- end folio-item -->
+
+            <div class="column folio-item">
+                <a data-content="Super Mario Bros" href="#modal-03" class="folio-item__thumb">
+                    <img src="images/portfolio/supermario.png"
+                         srcset="images/portfolio/supermario.png 1x,
+                                 images/portfolio/supermario2X.png 2x" alt="">
+                </a>
+            </div> <!-- end folio-item -->
+
+            <div class="column folio-item">
+                <a data-content="UE4 Survival Horror" href="#modal-04" class="folio-item__thumb">
+                    <img src="images/portfolio/CSDHorrorGame.png"
+                         srcset="images/portfolio/CSDHorrorGame2X.png 1x,
+                                 images/portfolio/CSDHorrorGame.png 2x" alt="">
+                </a>
+            </div> <!-- end folio-item -->
+
+            <div class="column folio-item">
+                <a data-content="Data Analysis" href="#modal-05" class="folio-item__thumb">
+                    <img src="images/portfolio/CSDHorrorGame.png"
+                         srcset="images/portfolio/CSDHorrorGame2X.png 1x,
+                                 images/portfolio/CSDHorrorGame.png 2x" alt="">
+                </a>
+            </div> <!-- end folio-item -->
+
+            <div class="column folio-item">
+                <a data-content="Client Server Relays" href="#modal-06" class="folio-item__thumb">
+                    <img src="images/portfolio/CSDHorrorGame.png"
+                         srcset="images/portfolio/CSDHorrorGame2X.png 1x,
+                                 images/portfolio/CSDHorrorGame.png 2x" alt="">
+                </a>
+            </div> <!-- end folio-item -->
+
+            <div class="column folio-item">
+                <a data-content="Social Network" href="#modal-07" class="folio-item__thumb">
+                    <img src="images/portfolio/CSDHorrorGame.png"
+                         srcset="images/portfolio/CSDHorrorGame2X.png 1x,
+                                 images/portfolio/CSDHorrorGame.png 2x" alt="">
+                </a>
+            </div> <!-- end folio-item -->
+
+
+        </div> <!-- end folio-list -->
+        <!-- Modal Templates Popup
+    =========================================================== -->
+        <div id="modal-01" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/ticket.jpg" alt="" />
+
+                <div class="modal-popup__desc">
+                    <h5>Ticket To Ride Card Game</h5>
+                    <p>Implementation of a 2D game "Ticket To Ride Card Game" in the framework of a core course of the Department of Computer Science.</p>
+                    <ul>
+                        <li>
+                            Implementation based on pronunciation
+                        </li>
+                        <li>
+                            2 player interaction with turn switching
+                        </li>
+                        <li>
+                            Collect points through regular and special cards through a board
+                        </li>
+                        <li>
+                            Save game and load game
+                        </li>
+                        <li>
+                            Move cards in the GUI to various positions
+                        </li>
+                    </ul>
+                    Technologies:
+                    <ul>
+                        <li>
+                            Java 8
+                        </li>
+                        <li>
+                            Java Swing
+                        </li>
+                    </ul>
+                    <ul class="modal-popup__cat">
+                        <li>Branding</li>
+                        <li>Java Programming Language</li>
+                    </ul>
+                </div>
+
+                <a href="https://drive.google.com/drive/folders/1fKdJ-GOLwhIA0GrjWIxu9-dlQ7sXVlJm?usp=sharing" class="modal-popup__details">Project link</a>
+            </div>
+        </div> <!-- end modal -->
+
+        <div id="modal-02" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/alpha.png" alt="" />
+
+                <div class="modal-popup__desc">
+                    <h5>Alpha Programming Language</h5>
+                    <p>
+                        Lexicographic analysis, regular expressions, rational and non-rational automata, lexical analyzer construction methods, lexical analyzer generators.
+                        Building a complete compiler using Lex and Yacc type tools, building the virtual machine, building library functions.
+                    </p>
+                    <ul class="modal-popup__cat">
+                        <li>Alpha Programming Language, Flex, Yacc, Compilers, C Language</li>
+                    </ul>
+                </div>
+                <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
+            </div>
+        </div> <!-- end modal -->
+
+        <div id="modal-03" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/mario.png" alt="" />
+
+                <div class="modal-popup__desc">
+                    <h5>Super Mario Bros(1985)</h5>
+                    <p>Implementation of a 2D game "Super Mario Bros 1985" in the framework of an elective course of the Department of Computer Science.</p>
+                    <ul>
+                        <li>
+                            Implementation based on pronunciation
+                        </li>
+                        <li>
+                            Tile-based game
+                        </li>
+                        <li>
+                            Collision Detection
+                        </li>
+                        <li>
+                            Implementation of character movements through Sprites
+                        </li>
+                        <li>
+                            Sprites based on small, Big, Indestructible Mario
+                        </li>
+                        <li>
+                            Implementation of bonus room
+                        </li>
+                        <li>
+                            Presentation of a game to a teacher supervisor and fellow students
+                        </li>
+                    </ul>
+                    Technologies:
+                    <ul>
+                        <li>
+                            C++
+                        </li>
+                        <li>
+                            Allegro
+                        </li>
+                    </ul>
+                    <ul class="modal-popup__cat">
+                        <li>C++, Allegro</li>
+                    </ul>
+                </div>
+
+                <a href="https://drive.google.com/drive/folders/1SmfPZhmanedLr1ZCJ_ScTi32tw0B1T7b?fbclid=IwAR2szP_VGwnNuFmez2VWl6NBSDS34cBsOpGI9UTUA_XuVxBgp4LfqpHanQ0" class="modal-popup__details">Project link</a>
+            </div>
+        </div> <!-- end modal -->
+
+        <div id="modal-04" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/gallery/CSDHorrorGame.jpg" alt="" />
+
+                <div class="modal-popup__desc">
+                    <h5>Unreal Engine 4 Survival Horror Game</h5>
+                    <p></p>
+                    <ul>
+                        <li>
+                            Presentation of personal idea and game scenario to a supervising professor
+                        </li>
+                        <li>
+                            Designing game requirements
+                        </li>
+                        <li>
+                            Implementation using Unreal Engine and C++ (3D Game)
+                        </li>
+                    </ul>
+                    <p>Technologies:</p>
+                    <ul>
+                        <li>
+                            Building architecture according to blueprints (3 floors)
+                        </li>
+                        <li>
+                            First Person View (FPV) character
+                        </li>
+                        <li>
+                            Adding features via C++ (lens for use by the character)
+                        </li>
+                        <li>
+                            Implementation of mini games depending on user interaction
+                        </li>
+                    </ul>
+                    <ul class="modal-popup__cat">
+                        <li>Unreal Engine 4, C++, Designer, Director, Developer, Scenario</li>
+                    </ul>
+                </div>
+
+                <a href="https://drive.google.com/drive/folders/1bYRHZ2MrvfVuXd1L8frS3zD3UHIVd8pP?fbclid=IwAR2szP_VGwnNuFmez2VWl6NBSDS34cBsOpGI9UTUA_XuVxBgp4LfqpHanQ0" class="modal-popup__details">Project link</a>
+            </div>
+        </div> <!-- end modal -->
+
+        <div id="modal-05" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/alpha.png" alt="" />
+
+                <div class="modal-popup__desc">
+                    <h5>Data Analysis on R</h5>
+                    <p>
+                        <ul>
+                            <li>Preprocessing Datasets</li>
+                            <li>Normalization of the Datasets</li>
+                            <li>Exploratory analysis for each decease dataset with PCA plots</li>
+                            <li>2 Different analysis for each individual</li>
+                        </ul>
+                    </p>
+                    <ul class="modal-popup__cat">
+                        <li>R Programming Language</li>
+                    </ul>
+                </div>
+                <a href="https://github.com/Nikolhs123/hy390" class="modal-popup__details">Project link</a>
+            </div>
+        </div> <!-- end modal -->
+
+        <div id="modal-06" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/alpha.png" alt="" />
+
+                <div class="modal-popup__desc">
+                    <h5>Client Server in Python</h5>
+                    <p>
+                        Lexicographic analysis, regular expressions, rational and non-rational automata, lexical analyzer construction methods, lexical analyzer generators.
+                        Building a complete compiler using Lex and Yacc type tools, building the virtual machine, building library functions.
+                    </p>
+                    <ul class="modal-popup__cat">
+                        <li>Alpha Programming Language, Flex, Yacc, Compilers, C Language</li>
+                    </ul>
+                </div>
+                <a href="https://github.com/Nikolhs123/hy335b" class="modal-popup__details">Project link</a>
+            </div>
+        </div> <!-- end modal -->
+
+        <div id="modal-07" hidden>
+            <div class="modal-popup">
+                <img src="images/portfolio/alpha.png" alt="" />
+
+                <div class="modal-popup__desc">
+                    <h5>Social Network</h5>
+                    <p>
+                        <ul>
+                            <li>HTML, CSS3</li>
+                            <li>
+                                DOM manipulation, openstreet maps & geocode and HTML5 geolocation, Ajax
+                                Requests
+                            </li>
+                            <li>Sign up and Sign in User implementations</li>
+                            <li>REST API, implementation of posts for each user, usage of GIT</li>
+                            <li>JQuery and Javasript usage, Servlets</li>
+                        </ul>
+                    </p>
+                    <ul class="modal-popup__cat">
+                        <li>HTML, CSS3, Javascript, JQuery, Servlets, REST API, Git</li>
+                    </ul>
+                </div>
+                <a href="https://www.behance.net/" class="modal-popup__details">Project link</a>
+            </div>
+        </div> <!-- end modal -->
+
+    </section> <!-- end s-portfolio -->
+
+    <!-- contact
+    ================================================== -->
+    <section id="contact" class="s-contact target-section">
+
+        <div class="row s-contact__header">
+            <div class="column large-12">
+                <h3 class="section-header-allcaps">Say Hello</h3>
+            </div>
+        </div>
+
+        <div class="row s-contact__content">
+
+            <div class="column large-7 medium-12">
+
+                <h4 class="huge-text">
+                Have a new project in mind? Let's collaborate and build something awesome. 
+                Let's turn that idea to an even greater :)
+                </h4>
+
+            </div>
+
+            <div class="column large-4 medium-12">
+
+                <div class="row contact-infos">
+                    <div class="column large-14 medium-6 tab-12">
+                        <div class="contact-block">
+                            <h5 class="contact-block__header">
+                                Email
+                            </h5>
+                            <p class="contact-block__content">
+                                <a class="mailtoui" href="mailto:n.marmaras@hotmail.com">n.marmaras@hotmail.com</a>
+                            </p>
+                        </div> <!-- end contact-block -->
+                    </div>
+                    <div class="column large-12 medium-6 tab-12">
+                        <div class="contact-block">
+                            <h5 class="contact-block__header">
+                                <!--Phone-->
+                            </h5>
+                            <p class="contact-block__content">
+                                <!--<a href="tel:+1975432345">+197 543 2345</a>-->
+                            </p>
+                        </div> <!-- end contact-block -->
+                    </div>
+
+                    <div class="column large-12">
+                        <a href="mailto:n.marmaras@hotmail.com" class="mailtoui btn btn--primary h-full-width">Let's Talk</a>
+                    </div>
+                </div> <!-- end contact-infos -->
+
+            </div>
+        </div> <!-- s-contact__content -->
+
+    </section> <!-- end s-contact -->
+    
+
+    <!-- footer
+    ================================================== -->
+    <footer class="s-footer">
+        <div class="row">
+            <div class="column large-4 medium-6 w-1000-stack s-footer__social-block">
+                <ul class="s-footer__social">
+                    <li><a href="https://www.facebook.com/profile.php?id=1755053703"><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/Nikos_marm"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/nikos_marm/"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/nikos-marmaras-54b6011b7/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="column large-7 medium-6 w-1000-stack ss-copyright">
+                <span>© Copyright Nick Marmaras 2022</span> 
+                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            </div>
+        </div>
+
+        <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z"/></svg>
+             </a>
+        </div> <!-- end ss-go-top -->
+    </footer>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
