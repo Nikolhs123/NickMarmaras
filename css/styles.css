@@ -4702,6 +4702,11 @@ input[type="button"].btn--primary:focus {
   .column.large-11 {
     width: 80%; /* Adjust as needed */
   }
+
+  .filter-button-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+}
   
 
   @keyframes rotateBack {

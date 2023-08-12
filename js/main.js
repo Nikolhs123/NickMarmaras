@@ -314,3 +314,49 @@
 
     })();
 })(document.documentElement);
+
+// Add this code after your existing JavaScript code
+
+// Function to handle filtering
+function handleFilter(category) {
+    const folioItems = document.querySelectorAll('.folio-item');
+
+    folioItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+
+        if (category === 'all' || itemCategory === category) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// Event listener for filter buttons
+document.addEventListener('DOMContentLoaded', function () {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const folioItems = document.querySelectorAll('.folio-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const category = this.getAttribute('data-category');
+            
+            // Fade out current items
+            folioItems.forEach(item => {
+                if (item.style.display !== 'none') {
+                    item.style.transition = 'opacity 0.5s';
+                    item.style.opacity = 0;
+                }
+            });
+
+            // After a delay, update items and fade them in
+            setTimeout(() => {
+                handleFilter(category); // Update the items to display
+                folioItems.forEach(item => {
+                    item.style.transition = 'opacity 0.5s';
+                    item.style.opacity = 1;
+                });
+            }, 350); // Adjust the delay as needed
+        });
+    });
+});
