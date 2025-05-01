@@ -332,6 +332,30 @@ function handleFilter(category) {
     });
 }
 
+document.addEventListener('mousemove', (e) => {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    document.body.appendChild(dot);
+
+    dot.style.left = `${e.pageX}px`;
+    dot.style.top = `${e.pageY}px`;
+
+    setTimeout(() => {
+      dot.style.opacity = 0;
+      dot.style.transform = 'scale(2)';
+    }, 10);
+
+    setTimeout(() => {
+      dot.remove();
+    }, 500);
+  });
+
+document.querySelectorAll('.skill-bubble').forEach(bubble => {
+  bubble.addEventListener('click', () => {
+    bubble.classList.toggle('clicked');
+  });
+});
+
 // Event listener for filter buttons
 document.addEventListener('DOMContentLoaded', function () {
     const filterButtons = document.querySelectorAll('.filter-btn');

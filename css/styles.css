@@ -611,7 +611,20 @@ html {
     box-sizing: inherit;
 }
 
+.trail-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff8787;
+    pointer-events: none;
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.5s ease;
+  }
+  
+
 body {
+    cursor: url('https://cdn-icons-png.flaticon.com/32/11115/11115715.png') 0 0, auto;
     font-weight: normal;
     line-height: 1;
     word-wrap: break-word;
@@ -4692,11 +4705,16 @@ input[type="button"].btn--primary:focus {
     line-height: 1.2;
   }
   
-  /* Add hover effect for rotation */
+ 
+  .skill-bubble.clicked {
+    transform: rotateY(360deg);
+    background-color: #ff8787;
+  }
+  
+  /* Color changes on hover */
   .skill-bubble:hover {
-    transform: rotateY(360deg); /* Rotate 360 degrees on hover */
-    background-color: #ff8787; /* Change background color on hover */
-    animation: rotateBack 0.5s ease-in-out forwards; /* Apply the rotation animation */
+    cursor: pointer;
+    background-color: #ff8787;
   }
 
   .column.large-11 {
