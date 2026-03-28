@@ -4749,6 +4749,8 @@ input[type="button"].btn--primary:focus {
     margin-top: 5px;
     font-weight: bold; /* Apply bold styling */
     line-height: 1.2;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
   
  
@@ -4785,7 +4787,10 @@ input[type="button"].btn--primary:focus {
   @media (max-width: 600px) {
     .skill-bubble {
       width: 100px; /* Adjust width for mobile */
-      height: 140px; /* Adjust height for mobile */
+      min-height: 150px; /* Allow longer skill names to stay inside the card */
+      height: auto;
+      justify-content: flex-start;
+      gap: 8px;
     }
   
     .skill-description {
