@@ -203,20 +203,56 @@
 
         folioLinks.forEach(function(link) {
             let modalbox = link.getAttribute('href');
+            let keydownHandler;
             let instance = basicLightbox.create(
                 document.querySelector(modalbox),
                 {
+                    className: 'portfolio-lightbox',
                     onShow: function(instance) {
-                        //detect Escape key press
-                        document.addEventListener("keydown", function(evt) {
+                        keydownHandler = function(evt) {
                             evt = evt || window.event;
-                            if(evt.keyCode === 27){
-                            instance.close();
+                            if (evt.key === 'Escape' || evt.keyCode === 27) {
+                                instance.close();
                             }
-                        });
+                        };
+
+                        document.addEventListener("keydown", keydownHandler);
+                    },
+
+                    onClose: function() {
+                        if (keydownHandler) {
+                            document.removeEventListener("keydown", keydownHandler);
+                            keydownHandler = null;
+                        }
                     }
                 }
-            )
+            );
+
+            let modalPopup = instance.element().querySelector('.modal-popup');
+            let modalDetails = modalPopup && modalPopup.querySelector('.modal-popup__details');
+
+            if (modalPopup && !modalPopup.querySelector('.modal-popup__actions')) {
+                let modalActions = document.createElement('div');
+                let closeButton = document.createElement('button');
+
+                modalActions.className = 'modal-popup__actions';
+
+                if (modalDetails) {
+                    modalActions.appendChild(modalDetails);
+                }
+
+                closeButton.className = 'modal-popup__close';
+                closeButton.type = 'button';
+                closeButton.setAttribute('aria-label', 'Close project details');
+                closeButton.textContent = 'X';
+                closeButton.addEventListener('click', function() {
+                    instance.close();
+                });
+
+                modalActions.appendChild(closeButton);
+                modalPopup.insertBefore(modalActions, modalPopup.firstChild);
+            }
+
             modals.push(instance);
         });
 
