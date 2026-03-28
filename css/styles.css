@@ -4787,14 +4787,17 @@ input[type="button"].btn--primary:focus {
   @media (max-width: 600px) {
     .skill-bubble {
       width: 100px; /* Adjust width for mobile */
-      min-height: 150px; /* Allow longer skill names to stay inside the card */
-      height: auto;
+      height: 150px; /* Keep all skill cards the same size on mobile */
       justify-content: flex-start;
       gap: 8px;
     }
   
     .skill-description {
       font-size: 10px;
+      min-height: 3.6em; /* Reserve room for up to 3 wrapped lines */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
   
