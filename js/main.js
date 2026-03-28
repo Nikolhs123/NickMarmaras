@@ -17,7 +17,7 @@
         const preloader = document.querySelector('#preloader');
         if (!preloader) return;
 
-        window.addEventListener('load', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             
             document.querySelector('body').classList.remove('ss-preload');
             document.querySelector('body').classList.add('ss-loaded');
@@ -209,6 +209,12 @@
                 {
                     className: 'portfolio-lightbox',
                     onShow: function(instance) {
+                        instance.element().querySelectorAll('img[data-src]').forEach(function(image) {
+                            if (!image.getAttribute('src')) {
+                                image.setAttribute('src', image.getAttribute('data-src'));
+                            }
+                        });
+
                         keydownHandler = function(evt) {
                             evt = evt || window.event;
                             if (evt.key === 'Escape' || evt.keyCode === 27) {
