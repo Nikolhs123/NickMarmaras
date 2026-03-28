@@ -4785,16 +4785,28 @@ input[type="button"].btn--primary:focus {
   }
   /* Media query for mobile view */
   @media (max-width: 600px) {
+    .column.large-11 {
+      width: 100%;
+    }
+
     .skill-bubble {
-      width: 100px; /* Adjust width for mobile */
-      height: 150px; /* Keep all skill cards the same size on mobile */
+      box-sizing: border-box;
+      width: 116px; /* Enlarge all mobile skill cards equally */
+      height: 176px; /* Keep all skill cards the same size on mobile */
+      margin: 8px;
+      padding: 12px 10px;
       justify-content: flex-start;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    .skill-bubble img {
+      width: 76px;
+      height: 76px;
     }
   
     .skill-description {
       font-size: 10px;
-      min-height: 3.6em; /* Reserve room for up to 3 wrapped lines */
+      min-height: 4.8em; /* Reserve room for up to 4 wrapped lines */
       display: flex;
       align-items: center;
       justify-content: center;
