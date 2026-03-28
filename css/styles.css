@@ -4082,10 +4082,14 @@ input[type="button"].btn--primary:focus {
  * ------------------------------------------------------------------- */
 .modal-popup {
     max-width: 700px;
+    max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
     background-color: white;
     font-size: calc(var(--text-size) * 0.9);
     line-height: 1.647;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     position: relative;
 }
 
