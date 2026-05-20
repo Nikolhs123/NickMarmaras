@@ -4018,6 +4018,15 @@ input[type="button"].btn--primary:focus {
     overflow: hidden;
 }
 
+.folio-item__thumb--baraki {
+    aspect-ratio: 600 / 650;
+}
+
+.folio-item .folio-item__thumb--baraki img {
+    height: 100%;
+    object-fit: cover;
+}
+
 .folio-item__thumb::before {
     z-index: 1;
     content: "";
@@ -4170,6 +4179,10 @@ input[type="button"].btn--primary:focus {
     gap: 1rem;
     z-index: 2;
     pointer-events: none;
+}
+
+.modal-popup__actions--close-only {
+    justify-content: flex-end;
 }
 
 .modal-popup__details {
@@ -4742,6 +4755,11 @@ input[type="button"].btn--primary:focus {
     .s-contact__bg-video {
         display: none;
     }
+
+    .skills-celebration__message,
+    .skills-celebration__piece {
+        animation: none;
+    }
 }
 
 .ss-go-top a {
@@ -4842,6 +4860,86 @@ input[type="button"].btn--primary:focus {
     background-color: #ff8787;
   }
 
+  .skills-celebration {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 700;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .skills-celebration.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .skills-celebration__backdrop {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(248, 113, 113, 0.18), rgba(15, 23, 42, 0.72));
+  }
+
+  .skills-celebration__message {
+    position: relative;
+    z-index: 2;
+    min-width: min(34rem, calc(100vw - 3.2rem));
+    padding: 2rem 2.4rem;
+    border-radius: 2rem;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
+    color: white;
+    text-align: center;
+    display: grid;
+    gap: 0.4rem;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    animation: skillsCelebratePop 3.2s ease both;
+  }
+
+  .skills-celebration__eyebrow {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fbbf24;
+  }
+
+  .skills-celebration__message strong {
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+    line-height: 1;
+  }
+
+  .skills-celebration__message span:last-child {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .skills-celebration__confetti {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .skills-celebration__piece {
+    position: absolute;
+    top: -14%;
+    left: var(--left);
+    width: 12px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--color);
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(var(--rotate));
+    animation: skillsConfettiFall var(--duration) cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: var(--delay);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+  }
+
   .column.large-11 {
     width: 80%; /* Adjust as needed */
   }
@@ -4858,6 +4956,39 @@ input[type="button"].btn--primary:focus {
     }
     100% {
       transform: rotateY(0); /* End at the original state */
+    }
+  }
+
+  @keyframes skillsCelebratePop {
+    0% {
+      opacity: 0;
+      transform: scale(0.85) translateY(18px);
+    }
+    12% {
+      opacity: 1;
+      transform: scale(1.03) translateY(0);
+    }
+    88% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.96) translateY(-8px);
+    }
+  }
+
+  @keyframes skillsConfettiFall {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -20px, 0) rotate(var(--rotate));
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(var(--drift), 112vh, 0) rotate(calc(var(--rotate) + 280deg));
     }
   }
   /* Media query for mobile view */
@@ -4887,6 +5018,12 @@ input[type="button"].btn--primary:focus {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .skills-celebration__message {
+      min-width: auto;
+      width: calc(100vw - 2.4rem);
+      padding: 1.8rem 1.6rem;
     }
   }
   

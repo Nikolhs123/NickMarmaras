@@ -245,6 +245,8 @@
 
                 if (modalDetails) {
                     modalActions.appendChild(modalDetails);
+                } else {
+                    modalActions.classList.add('modal-popup__actions--close-only');
                 }
 
                 closeButton.className = 'modal-popup__close';
@@ -392,10 +394,85 @@ document.addEventListener('mousemove', (e) => {
     }, 500);
   });
 
-document.querySelectorAll('.skill-bubble').forEach(bubble => {
-  bubble.addEventListener('click', () => {
-    bubble.classList.toggle('clicked');
-  });
+const skillBubbles = document.querySelectorAll('.skill-bubble');
+let skillsCelebration;
+let skillsCelebrationTimeout;
+let skillsCelebrationActive = false;
+
+function ensureSkillsCelebration() {
+    if (skillsCelebration) return skillsCelebration;
+
+    skillsCelebration = document.createElement('div');
+    skillsCelebration.className = 'skills-celebration';
+    skillsCelebration.innerHTML = `
+        <div class="skills-celebration__backdrop"></div>
+        <div class="skills-celebration__confetti"></div>
+        <div class="skills-celebration__message" role="status" aria-live="polite">
+            <span class="skills-celebration__eyebrow">Skill Tree Complete</span>
+            <strong>Congrats!</strong>
+            <span>You clicked every skill.</span>
+        </div>
+    `;
+
+    document.body.appendChild(skillsCelebration);
+    return skillsCelebration;
+}
+
+function populateSkillsConfetti(container) {
+    const colors = ['#f97316', '#fb7185', '#38bdf8', '#34d399', '#facc15', '#a78bfa'];
+
+    container.innerHTML = '';
+
+    for (let index = 0; index < 28; index += 1) {
+        const piece = document.createElement('span');
+        piece.className = 'skills-celebration__piece';
+        piece.style.setProperty('--left', `${4 + (index * 3.4)}%`);
+        piece.style.setProperty('--delay', `${(index % 7) * 0.08}s`);
+        piece.style.setProperty('--duration', `${2.1 + ((index % 5) * 0.18)}s`);
+        piece.style.setProperty('--rotate', `${-30 + ((index * 17) % 60)}deg`);
+        piece.style.setProperty('--drift', `${-40 + ((index * 23) % 80)}px`);
+        piece.style.setProperty('--color', colors[index % colors.length]);
+        container.appendChild(piece);
+    }
+}
+
+function triggerSkillsCelebration() {
+    if (skillsCelebrationActive) return;
+
+    const celebration = ensureSkillsCelebration();
+    const confetti = celebration.querySelector('.skills-celebration__confetti');
+
+    skillsCelebrationActive = true;
+    populateSkillsConfetti(confetti);
+
+    celebration.classList.remove('is-visible');
+    void celebration.offsetWidth;
+    celebration.classList.add('is-visible');
+
+    clearTimeout(skillsCelebrationTimeout);
+    skillsCelebrationTimeout = setTimeout(() => {
+        celebration.classList.remove('is-visible');
+        skillsCelebrationActive = false;
+    }, 3200);
+}
+
+function maybeCelebrateSkills() {
+    if (!skillBubbles.length) return;
+
+    const allClicked = Array.from(skillBubbles).every((bubble) => {
+        return bubble.classList.contains('clicked');
+    });
+
+    if (allClicked) {
+        triggerSkillsCelebration();
+    }
+}
+
+skillBubbles.forEach((bubble) => {
+    bubble.addEventListener('click', () => {
+        bubble.classList.toggle('clicked');
+        maybeCelebrateSkills();
+    });
 });
 
 // Event listener for filter buttons
