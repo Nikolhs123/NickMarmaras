@@ -359,40 +359,110 @@
     })();
 })(document.documentElement);
 
-// Add this code after your existing JavaScript code
+/* Project filter tabs
+ * ------------------------------------------------------
+ * Items can belong to several categories (space-separated data-category).
+ * "featured" is shown on load; "rnd" swaps the grid for the publications panel.
+ */
+(function ssProjectFilter() {
+    const portfolio = document.querySelector('.s-portfolio');
+    if (!portfolio) return;
 
-// Function to handle filtering
-function handleFilter(category) {
-    const folioItems = document.querySelectorAll('.folio-item');
+    const filterButtons = portfolio.querySelectorAll('.filter-btn[data-category]');
+    const folioList = portfolio.querySelector('.folio-list');
+    const folioItems = portfolio.querySelectorAll('.folio-item');
+    const rndList = portfolio.querySelector('.rnd-list');
+    const defaultCategory = 'featured';
+    let fadeTimeout;
 
-    folioItems.forEach(item => {
-        const itemCategory = item.getAttribute('data-category');
+    if (!filterButtons.length) return;
 
-        if (category === 'all' || itemCategory === category) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
+    function itemMatches(item, category) {
+        if (category === 'all') return true;
+        return (item.getAttribute('data-category') || '').split(/\s+/).indexOf(category) !== -1;
+    }
+
+    function applyFilter(category) {
+        const showRnd = category === 'rnd';
+
+        if (rndList) rndList.hidden = !showRnd;
+        if (folioList) folioList.hidden = showRnd;
+
+        folioItems.forEach(function(item) {
+            item.style.display = itemMatches(item, category) ? '' : 'none';
+        });
+
+        filterButtons.forEach(function(button) {
+            const isActive = button.getAttribute('data-category') === category;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+    }
+
+    filterButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const category = button.getAttribute('data-category');
+
+            clearTimeout(fadeTimeout);
+            portfolio.classList.add('is-filtering');
+
+            fadeTimeout = setTimeout(function() {
+                applyFilter(category);
+                portfolio.classList.remove('is-filtering');
+            }, 250);
+        });
     });
-}
 
-document.addEventListener('mousemove', (e) => {
-    const dot = document.createElement('div');
-    dot.className = 'trail-dot';
-    document.body.appendChild(dot);
+    applyFilter(defaultCategory);
+})();
 
-    dot.style.left = `${e.pageX}px`;
-    dot.style.top = `${e.pageY}px`;
+/* Skill category tabs
+ * ------------------------------------------------------
+ * One category visible at a time; arrow keys / Home / End move between tabs.
+ */
+(function ssSkillTabs() {
+    const tabs = Array.prototype.slice.call(document.querySelectorAll('.skill-tab'));
+    const panels = document.querySelectorAll('.skill-group');
 
-    setTimeout(() => {
-      dot.style.opacity = 0;
-      dot.style.transform = 'scale(2)';
-    }, 10);
+    if (!tabs.length) return;
 
-    setTimeout(() => {
-      dot.remove();
-    }, 500);
-  });
+    function selectTab(tab, moveFocus) {
+        const target = tab.getAttribute('aria-controls');
+
+        tabs.forEach(function(t) {
+            const isActive = t === tab;
+            t.classList.toggle('is-active', isActive);
+            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            t.tabIndex = isActive ? 0 : -1;
+        });
+
+        panels.forEach(function(panel) {
+            panel.hidden = panel.id !== target;
+        });
+
+        if (moveFocus) tab.focus();
+    }
+
+    tabs.forEach(function(tab, index) {
+        tab.addEventListener('click', function() {
+            selectTab(tab, false);
+        });
+
+        tab.addEventListener('keydown', function(e) {
+            let next;
+
+            if (e.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
+            else if (e.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
+            else if (e.key === 'Home') next = tabs[0];
+            else if (e.key === 'End') next = tabs[tabs.length - 1];
+
+            if (next) {
+                e.preventDefault();
+                selectTab(next, true);
+            }
+        });
+    });
+})();
 
 const skillBubbles = document.querySelectorAll('.skill-bubble');
 let skillsCelebration;
@@ -472,34 +542,5 @@ skillBubbles.forEach((bubble) => {
     bubble.addEventListener('click', () => {
         bubble.classList.toggle('clicked');
         maybeCelebrateSkills();
-    });
-});
-
-// Event listener for filter buttons
-document.addEventListener('DOMContentLoaded', function () {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const folioItems = document.querySelectorAll('.folio-item');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const category = this.getAttribute('data-category');
-            
-            // Fade out current items
-            folioItems.forEach(item => {
-                if (item.style.display !== 'none') {
-                    item.style.transition = 'opacity 0.5s';
-                    item.style.opacity = 0;
-                }
-            });
-
-            // After a delay, update items and fade them in
-            setTimeout(() => {
-                handleFilter(category); // Update the items to display
-                folioItems.forEach(item => {
-                    item.style.transition = 'opacity 0.5s';
-                    item.style.opacity = 1;
-                });
-            }, 350); // Adjust the delay as needed
-        });
     });
 });
